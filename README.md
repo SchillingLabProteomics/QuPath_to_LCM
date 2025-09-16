@@ -27,9 +27,7 @@ The individual steps of the Galaxy workflow are illustrated here:
    - Or import it directly using the shared Galaxy link above.  
 3. Inputs for the workflow:
   - teachmark coordinates from QuPath (tsv file exported via the point annotation menu)
-  - teachmark coordinates from LCM device
-  -
-  - tex and y coordinates as 2 column tabular file with a header line x and y containing at least three teachmark coordinates from physical slide in LCM device, the teachmarks have to be in the same order as in the first file
+  - teachmark coordinates from LCM device (txt file exported in LCM software)
   - QuPath annotations as GeoJSON file
 5. Run the workflow to generate a text file containing the annotations as txt file, that can directly be uploaded into Zeiss PALM RoboSoftware. An additional scatterplot showing the coordinates of the annotations is generated for visual control. 
 
