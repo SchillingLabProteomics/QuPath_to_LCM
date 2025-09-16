@@ -1,0 +1,802 @@
+{
+    "a_galaxy_workflow": "true",
+    "annotation": "",
+    "comments": [
+        {
+            "child_steps": [
+                8
+            ],
+            "color": "yellow",
+            "data": {
+                "title": "Coregistration and transformation of coordinates"
+            },
+            "id": 2,
+            "position": [
+                956.0,
+                127.3
+            ],
+            "size": [
+                214,
+                391
+            ],
+            "type": "frame"
+        },
+        {
+            "child_steps": [
+                16,
+                12,
+                11,
+                14,
+                15
+            ],
+            "color": "orange",
+            "data": {
+                "title": "Combining all individual Zeiss LMD annotation files into a single one"
+            },
+            "id": 5,
+            "position": [
+                1476.3000000000002,
+                80.3
+            ],
+            "size": [
+                850,
+                367
+            ],
+            "type": "frame"
+        },
+        {
+            "child_steps": [
+                13,
+                10
+            ],
+            "color": "lime",
+            "data": {
+                "title": "Plotting for visual control of workflow"
+            },
+            "id": 4,
+            "position": [
+                1197.9,
+                440.2
+            ],
+            "size": [
+                446.2,
+                236
+            ],
+            "type": "frame"
+        },
+        {
+            "child_steps": [
+                5,
+                2
+            ],
+            "color": "blue",
+            "data": {
+                "title": "Qupath annotations preparation"
+            },
+            "id": 1,
+            "position": [
+                276.7,
+                323.7
+            ],
+            "size": [
+                569,
+                172
+            ],
+            "type": "frame"
+        },
+        {
+            "child_steps": [
+                7,
+                6,
+                4,
+                1,
+                3,
+                0
+            ],
+            "color": "turquoise",
+            "data": {
+                "title": "Teachmarks QuPath and LMD preparation"
+            },
+            "id": 0,
+            "position": [
+                0.0,
+                0.0
+            ],
+            "size": [
+                933.2,
+                311.6
+            ],
+            "type": "frame"
+        },
+        {
+            "child_steps": [
+                9
+            ],
+            "color": "pink",
+            "data": {
+                "title": "Individual Zeiss LMD files"
+            },
+            "id": 3,
+            "position": [
+                1187.5,
+                210.39999999999998
+            ],
+            "size": [
+                240,
+                197
+            ],
+            "type": "frame"
+        }
+    ],
+    "format-version": "0.1",
+    "name": "QuPath to LMD workflow direct teachmark file import and using collections",
+    "report": {
+        "markdown": "\n# Workflow Execution Report\n\n## Workflow Inputs\n```galaxy\ninvocation_inputs()\n```\n\n## Workflow Outputs\n```galaxy\ninvocation_outputs()\n```\n\n## Workflow\n```galaxy\nworkflow_display()\n```\n"
+    },
+    "steps": {
+        "0": {
+            "annotation": "tsv file from QuPath with Coordinates of Teachmarks in QuPath. Use point annotations and save their coordinates as tsv file. ",
+            "content_id": null,
+            "errors": null,
+            "id": 0,
+            "input_connections": {},
+            "inputs": [
+                {
+                    "description": "tsv file from QuPath with Coordinates of Teachmarks in QuPath. Use point annotations and save their coordinates as tsv file. ",
+                    "name": "Teachmarks Qupath"
+                }
+            ],
+            "label": "Teachmarks Qupath",
+            "name": "Input dataset",
+            "outputs": [],
+            "position": {
+                "left": 41.84698568973337,
+                "top": 69.70121900846125
+            },
+            "tool_id": null,
+            "tool_state": "{\"optional\": false, \"tag\": null}",
+            "tool_version": null,
+            "type": "data_input",
+            "uuid": "b2e81517-bf32-4a92-8f1f-b826d0499c22",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "1": {
+            "annotation": "txt file with point annotations from Zeiss LMD device\nCaution!: The order of teachmarks has to be the same as for the QuPath teachmarks",
+            "content_id": null,
+            "errors": null,
+            "id": 1,
+            "input_connections": {},
+            "inputs": [
+                {
+                    "description": "txt file with point annotations from Zeiss LMD device\nCaution!: The order of teachmarks has to be the same as for the QuPath teachmarks",
+                    "name": "Teachmarks LMD"
+                }
+            ],
+            "label": "Teachmarks LMD",
+            "name": "Input dataset",
+            "outputs": [],
+            "position": {
+                "left": 43.9,
+                "top": 212.0494505547788
+            },
+            "tool_id": null,
+            "tool_state": "{\"optional\": false, \"tag\": null}",
+            "tool_version": null,
+            "type": "data_input",
+            "uuid": "3d1c442c-0e03-471e-ae67-bea23dcca6c5",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "2": {
+            "annotation": "Annotations from QuPath in GeoJSON file as collection (list)",
+            "content_id": null,
+            "errors": null,
+            "id": 2,
+            "input_connections": {},
+            "inputs": [
+                {
+                    "description": "Annotations from QuPath in GeoJSON file as collection (list)",
+                    "name": "Qupath Geojson (collection)"
+                }
+            ],
+            "label": "Qupath Geojson (collection)",
+            "name": "Input dataset collection",
+            "outputs": [],
+            "position": {
+                "left": 324.3105859899117,
+                "top": 365.4497743138484
+            },
+            "tool_id": null,
+            "tool_state": "{\"optional\": false, \"tag\": null, \"collection_type\": \"list\", \"fields\": null}",
+            "tool_version": null,
+            "type": "data_collection_input",
+            "uuid": "38d75ef8-31fe-4251-b974-5b8fff4cbab9",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "3": {
+            "annotation": "Qupath tsv file has more than two columns. This step keeps only x and y coordinate columns (column 1 and 2) from tsv file.",
+            "content_id": "Cut1",
+            "errors": null,
+            "id": 3,
+            "input_connections": {
+                "input": {
+                    "id": 0,
+                    "output_name": "output"
+                }
+            },
+            "inputs": [],
+            "label": null,
+            "name": "Cut",
+            "outputs": [
+                {
+                    "name": "out_file1",
+                    "type": "tabular"
+                }
+            ],
+            "position": {
+                "left": 713.0541032829246,
+                "top": 82.9357919810265
+            },
+            "post_job_actions": {},
+            "tool_id": "Cut1",
+            "tool_state": "{\"columnList\": \"c1,c2\", \"delimiter\": \"T\", \"input\": {\"__class__\": \"ConnectedValue\"}, \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "1.0.2",
+            "type": "tool",
+            "uuid": "18b16373-1a0f-4848-94f3-fe04bc8e8bf5",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "4": {
+            "annotation": "This step prepares the LMD txt file to have a format that is usable in the registration tool (requires two columns with x and y coordinates and corresponding x and y letters in the first line)",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_find_and_replace/9.5+galaxy2",
+            "errors": null,
+            "id": 4,
+            "input_connections": {
+                "infile": {
+                    "id": 1,
+                    "output_name": "output"
+                }
+            },
+            "inputs": [],
+            "label": null,
+            "name": "Replace",
+            "outputs": [
+                {
+                    "name": "outfile",
+                    "type": "input"
+                }
+            ],
+            "position": {
+                "left": 268.2464386249642,
+                "top": 200.55960558536765
+            },
+            "post_job_actions": {},
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_find_and_replace/9.5+galaxy2",
+            "tool_shed_repository": {
+                "changeset_revision": "c41d78ae5fee",
+                "name": "text_processing",
+                "owner": "bgruening",
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            },
+            "tool_state": "{\"find_and_replace\": [{\"__index__\": 0, \"find_pattern\": \"Type\", \"replace_pattern\": \".\", \"is_regex\": true, \"global\": true, \"caseinsensitive\": true, \"wholewords\": true, \"skip_first_line\": false, \"searchwhere\": {\"searchwhere_select\": \"line\", \"__current_case__\": 0}}, {\"__index__\": 1, \"find_pattern\": \"Color\", \"replace_pattern\": \"x\", \"is_regex\": true, \"global\": true, \"caseinsensitive\": true, \"wholewords\": true, \"skip_first_line\": false, \"searchwhere\": {\"searchwhere_select\": \"line\", \"__current_case__\": 0}}, {\"__index__\": 2, \"find_pattern\": \"Thickness\", \"replace_pattern\": \"y\", \"is_regex\": true, \"global\": true, \"caseinsensitive\": true, \"wholewords\": true, \"skip_first_line\": false, \"searchwhere\": {\"searchwhere_select\": \"line\", \"__current_case__\": 0}}, {\"__index__\": 3, \"find_pattern\": \",\", \"replace_pattern\": \"\\\\t\", \"is_regex\": true, \"global\": true, \"caseinsensitive\": false, \"wholewords\": false, \"skip_first_line\": false, \"searchwhere\": {\"searchwhere_select\": \"line\", \"__current_case__\": 0}}], \"infile\": {\"__class__\": \"ConnectedValue\"}, \"__page__\": 0, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "9.5+galaxy2",
+            "type": "tool",
+            "uuid": "693d6a7b-34ce-4f6f-9d23-1abd4ecee873",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "5": {
+            "annotation": "Extracts coorddinates of QuPath annotations and outputs them as tabular file",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/galaxyp/qupath_roi_splitter/qupath_roi_splitter/0.3.2+galaxy0",
+            "errors": null,
+            "id": 5,
+            "input_connections": {
+                "input_collection": {
+                    "id": 2,
+                    "output_name": "output"
+                }
+            },
+            "inputs": [],
+            "label": null,
+            "name": "QuPath ROI Splitter",
+            "outputs": [
+                {
+                    "name": "output_txts",
+                    "type": "input"
+                }
+            ],
+            "position": {
+                "left": 602.9172720586391,
+                "top": 369.23108087743844
+            },
+            "post_job_actions": {
+                "ChangeDatatypeActionoutput_txts": {
+                    "action_arguments": {
+                        "newtype": "tabular"
+                    },
+                    "action_type": "ChangeDatatypeAction",
+                    "output_name": "output_txts"
+                }
+            },
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/galaxyp/qupath_roi_splitter/qupath_roi_splitter/0.3.2+galaxy0",
+            "tool_shed_repository": {
+                "changeset_revision": "6a8cf86fd3b7",
+                "name": "qupath_roi_splitter",
+                "owner": "galaxyp",
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            },
+            "tool_state": "{\"input_collection\": {\"__class__\": \"ConnectedValue\"}, \"optional\": {\"fill\": false, \"all\": false, \"img\": false}, \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "0.3.2+galaxy0",
+            "type": "tool",
+            "uuid": "690e7dd6-03f3-4b02-af66-6934934993c7",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "6": {
+            "annotation": "keeps only lines starting with a dot - they contain the coordinates of the teachmark points and the x and y header line (generated with the replace tool before)",
+            "content_id": "Grep1",
+            "errors": null,
+            "id": 6,
+            "input_connections": {
+                "input": {
+                    "id": 4,
+                    "output_name": "outfile"
+                }
+            },
+            "inputs": [],
+            "label": null,
+            "name": "Select",
+            "outputs": [
+                {
+                    "name": "out_file1",
+                    "type": "input"
+                }
+            ],
+            "position": {
+                "left": 484.99091238653614,
+                "top": 199.778141716696
+            },
+            "post_job_actions": {},
+            "tool_id": "Grep1",
+            "tool_state": "{\"input\": {\"__class__\": \"ConnectedValue\"}, \"invert\": \"\", \"keep_header\": false, \"pattern\": \"^\\\\.\", \"__page__\": 0, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "1.0.4",
+            "type": "tool",
+            "uuid": "78f80310-15df-4f7f-8cda-c1218fe29ee3",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "7": {
+            "annotation": "keep only column 2 and 3 with the x and y coordinates",
+            "content_id": "Cut1",
+            "errors": null,
+            "id": 7,
+            "input_connections": {
+                "input": {
+                    "id": 6,
+                    "output_name": "out_file1"
+                }
+            },
+            "inputs": [],
+            "label": null,
+            "name": "Cut",
+            "outputs": [
+                {
+                    "name": "out_file1",
+                    "type": "tabular"
+                }
+            ],
+            "position": {
+                "left": 710.961737236446,
+                "top": 203.33257911817617
+            },
+            "post_job_actions": {},
+            "tool_id": "Cut1",
+            "tool_state": "{\"columnList\": \"c2,c3\", \"delimiter\": \"T\", \"input\": {\"__class__\": \"ConnectedValue\"}, \"__page__\": 0, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "1.0.2",
+            "type": "tool",
+            "uuid": "55308352-3b9a-477d-ab85-63232ffe54af",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "8": {
+            "annotation": "Teachmarks from Qupath and LMD are used to calculate transformation matrix for registration of coordinates between them. Then the coordinates of the QuPath annotations are transformed  into the LMD coordinate system.",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/imgteam/landmark_registration/ip_landmark_registration/0.1.0-2",
+            "errors": null,
+            "id": 8,
+            "input_connections": {
+                "algo_option|fn_ptsmov": {
+                    "id": 5,
+                    "output_name": "output_txts"
+                },
+                "fn_lmkfix": {
+                    "id": 7,
+                    "output_name": "out_file1"
+                },
+                "fn_lmkmov": {
+                    "id": 3,
+                    "output_name": "out_file1"
+                }
+            },
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Perform affine image registration (landmark-based)",
+                    "name": "algo_option"
+                }
+            ],
+            "label": null,
+            "name": "Perform affine image registration (landmark-based)",
+            "outputs": [
+                {
+                    "name": "fn_out",
+                    "type": "tabular"
+                }
+            ],
+            "position": {
+                "left": 965.1412382946144,
+                "top": 226.34814404416835
+            },
+            "post_job_actions": {},
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/imgteam/landmark_registration/ip_landmark_registration/0.1.0-2",
+            "tool_shed_repository": {
+                "changeset_revision": "02aa2873e67d",
+                "name": "landmark_registration",
+                "owner": "imgteam",
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            },
+            "tool_state": "{\"algo_option\": {\"algo\": \"pwat\", \"__current_case__\": 2, \"fn_ptsmov\": {\"__class__\": \"ConnectedValue\"}}, \"fn_lmkfix\": {\"__class__\": \"ConnectedValue\"}, \"fn_lmkmov\": {\"__class__\": \"ConnectedValue\"}, \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "0.1.0-2",
+            "type": "tool",
+            "uuid": "54e319a3-b891-4e8f-9998-a8a0aef2b29e",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "9": {
+            "annotation": "transformed coordinates of annotations in format directly readable by Zeiss LMD software (import elements)",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/galaxyp/zeiss_lmd_converter/ZeissLMDconverter/2.0.4+galaxy0",
+            "errors": null,
+            "id": 9,
+            "input_connections": {
+                "input": {
+                    "id": 8,
+                    "output_name": "fn_out"
+                }
+            },
+            "inputs": [],
+            "label": null,
+            "name": "Zeiss laser-capture microdissection converter",
+            "outputs": [
+                {
+                    "name": "output",
+                    "type": "txt"
+                }
+            ],
+            "position": {
+                "left": 1198.57386604789,
+                "top": 256.06920440228083
+            },
+            "post_job_actions": {},
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/galaxyp/zeiss_lmd_converter/ZeissLMDconverter/2.0.4+galaxy0",
+            "tool_shed_repository": {
+                "changeset_revision": "f17bc16fefcf",
+                "name": "zeiss_lmd_converter",
+                "owner": "galaxyp",
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            },
+            "tool_state": "{\"input\": {\"__class__\": \"ConnectedValue\"}, \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "2.0.4+galaxy0",
+            "type": "tool",
+            "uuid": "03f42c0c-564f-49bb-909d-525c06177835",
+            "when": null,
+            "workflow_outputs": [
+                {
+                    "label": "output",
+                    "output_name": "output",
+                    "uuid": "38960f77-6201-4cd9-a3ea-9874e4913f07"
+                }
+            ]
+        },
+        "10": {
+            "annotation": "merges all individual regions into one file to then plot them together in the next step while keeping information about their origin via file name to allow using different colours in the scatter plot in the next step for each region",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/nml/collapse_collections/collapse_dataset/5.1.0",
+            "errors": null,
+            "id": 10,
+            "input_connections": {
+                "input_list": {
+                    "id": 8,
+                    "output_name": "fn_out"
+                }
+            },
+            "inputs": [],
+            "label": null,
+            "name": "Collapse Collection",
+            "outputs": [
+                {
+                    "name": "output",
+                    "type": "input"
+                }
+            ],
+            "position": {
+                "left": 1209.5396550823011,
+                "top": 501.07266716696387
+            },
+            "post_job_actions": {},
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/nml/collapse_collections/collapse_dataset/5.1.0",
+            "tool_shed_repository": {
+                "changeset_revision": "90981f86000f",
+                "name": "collapse_collections",
+                "owner": "nml",
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            },
+            "tool_state": "{\"filename\": {\"add_name\": true, \"__current_case__\": 0, \"place_name\": \"same_multiple\"}, \"input_list\": {\"__class__\": \"ConnectedValue\"}, \"one_header\": true, \"__page__\": 0, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "5.1.0",
+            "type": "tool",
+            "uuid": "6617ab20-3cc4-4c16-b960-50006b4af19f",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "11": {
+            "annotation": "",
+            "content_id": "Remove beginning1",
+            "errors": null,
+            "id": 11,
+            "input_connections": {
+                "input": {
+                    "id": 9,
+                    "output_name": "output"
+                }
+            },
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Remove beginning",
+                    "name": "input"
+                }
+            ],
+            "label": null,
+            "name": "Remove beginning",
+            "outputs": [
+                {
+                    "name": "out_file1",
+                    "type": "input"
+                }
+            ],
+            "position": {
+                "left": 1596.5690293022487,
+                "top": 148.2767647840102
+            },
+            "post_job_actions": {},
+            "tool_id": "Remove beginning1",
+            "tool_state": "{\"input\": {\"__class__\": \"RuntimeValue\"}, \"num_lines\": \"8\", \"__page__\": 0, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "1.0.0",
+            "type": "tool",
+            "uuid": "d7772079-24a3-4719-96a3-1687392595cb",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "12": {
+            "annotation": "",
+            "content_id": "__EXTRACT_DATASET__",
+            "errors": null,
+            "id": 12,
+            "input_connections": {
+                "input": {
+                    "id": 9,
+                    "output_name": "output"
+                }
+            },
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Extract dataset",
+                    "name": "input"
+                }
+            ],
+            "label": null,
+            "name": "Extract dataset",
+            "outputs": [
+                {
+                    "name": "output",
+                    "type": "data"
+                }
+            ],
+            "position": {
+                "left": 1598.0815519276848,
+                "top": 307.0916404547932
+            },
+            "post_job_actions": {
+                "ChangeDatatypeActionoutput": {
+                    "action_arguments": {
+                        "newtype": "txt"
+                    },
+                    "action_type": "ChangeDatatypeAction",
+                    "output_name": "output"
+                }
+            },
+            "tool_id": "__EXTRACT_DATASET__",
+            "tool_state": "{\"input\": {\"__class__\": \"RuntimeValue\"}, \"which\": {\"which_dataset\": \"first\", \"__current_case__\": 0}, \"__page__\": 0, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "1.0.2",
+            "type": "tool",
+            "uuid": "740c0da5-9bcc-4b54-ae9e-8a70d6ad0956",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "13": {
+            "annotation": "Plot of the transformed coordinates as control of correct transformation, if multiple regions are used as input they are plotted in different colours",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/ggplot2_point/ggplot2_point/3.5.1+galaxy2",
+            "errors": null,
+            "id": 13,
+            "input_connections": {
+                "input1": {
+                    "id": 10,
+                    "output_name": "output"
+                }
+            },
+            "inputs": [],
+            "label": null,
+            "name": "Scatterplot with ggplot2",
+            "outputs": [
+                {
+                    "name": "output1",
+                    "type": "png"
+                }
+            ],
+            "position": {
+                "left": 1435.2080492607677,
+                "top": 503.6691766495697
+            },
+            "post_job_actions": {},
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/ggplot2_point/ggplot2_point/3.5.1+galaxy2",
+            "tool_shed_repository": {
+                "changeset_revision": "f87634b12749",
+                "name": "ggplot2_point",
+                "owner": "iuc",
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            },
+            "tool_state": "{\"adv\": {\"type_conditional\": {\"type_options\": \"points\", \"__current_case__\": 0, \"points\": {\"pointoptions\": \"default\", \"__current_case__\": 0}}, \"factor\": {\"factoring\": \"Single\", \"__current_case__\": 1, \"factorcol\": \"1\", \"colors\": \"Default\", \"colororder\": \"1\"}, \"axis_title_customization\": {\"axis_customization\": \"default\", \"__current_case__\": 0}, \"axis_text_customization\": {\"axis_customization\": \"default\", \"__current_case__\": 0}, \"plot_title_customization\": {\"axis_customization\": \"default\", \"__current_case__\": 0}, \"gridlinecust\": \"default\", \"transform\": \"none\", \"scaling\": {\"plot_scaling\": \"Automatic\", \"__current_case__\": 0}, \"theme\": \"bw\", \"legend\": \"yes\"}, \"cols\": {\"header\": \"yes\", \"__current_case__\": 0, \"xplot\": \"2\", \"yplot\": \"3\"}, \"input1\": {\"__class__\": \"ConnectedValue\"}, \"out\": {\"unit_output_dim\": \"in\", \"width_output_dim\": \"7.0\", \"height_output_dim\": \"7.0\", \"dpi_output_dim\": \"300.0\", \"additional_output_format\": \"none\"}, \"title\": \"Coordinates of regions\", \"xlab\": \"x\", \"ylab\": \"y\", \"__page__\": 0, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "3.5.1+galaxy2",
+            "type": "tool",
+            "uuid": "ce797f88-2063-4c5c-8ad6-88ec3dcca6cd",
+            "when": null,
+            "workflow_outputs": [
+                {
+                    "label": "output1",
+                    "output_name": "output1",
+                    "uuid": "a5522624-d0f8-47fa-aa64-825fd855e268"
+                }
+            ]
+        },
+        "14": {
+            "annotation": "",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/nml/collapse_collections/collapse_dataset/5.1.0",
+            "errors": null,
+            "id": 14,
+            "input_connections": {
+                "input_list": {
+                    "id": 11,
+                    "output_name": "out_file1"
+                }
+            },
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Collapse Collection",
+                    "name": "input_list"
+                }
+            ],
+            "label": null,
+            "name": "Collapse Collection",
+            "outputs": [
+                {
+                    "name": "output",
+                    "type": "input"
+                }
+            ],
+            "position": {
+                "left": 1843.1102172483213,
+                "top": 149.78928740944622
+            },
+            "post_job_actions": {},
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/nml/collapse_collections/collapse_dataset/5.1.0",
+            "tool_shed_repository": {
+                "changeset_revision": "90981f86000f",
+                "name": "collapse_collections",
+                "owner": "nml",
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            },
+            "tool_state": "{\"filename\": {\"add_name\": false, \"__current_case__\": 1}, \"input_list\": {\"__class__\": \"RuntimeValue\"}, \"one_header\": false, \"__page__\": 0, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "5.1.0",
+            "type": "tool",
+            "uuid": "88ff6dd3-6e03-4379-b4d3-16cd30325b26",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "15": {
+            "annotation": "",
+            "content_id": "Show beginning1",
+            "errors": null,
+            "id": 15,
+            "input_connections": {
+                "input": {
+                    "id": 12,
+                    "output_name": "output"
+                }
+            },
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Select first",
+                    "name": "input"
+                }
+            ],
+            "label": null,
+            "name": "Select first",
+            "outputs": [
+                {
+                    "name": "out_file1",
+                    "type": "input"
+                }
+            ],
+            "position": {
+                "left": 1841.5976946228855,
+                "top": 308.6041630802292
+            },
+            "post_job_actions": {},
+            "tool_id": "Show beginning1",
+            "tool_state": "{\"header\": false, \"input\": {\"__class__\": \"RuntimeValue\"}, \"lineNum\": \"8\", \"__page__\": 0, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "1.0.2",
+            "type": "tool",
+            "uuid": "9a3e2153-34fe-4d24-a11d-e311d104fbd1",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "16": {
+            "annotation": "all annotations in one file for Zeiss lmd import",
+            "content_id": "cat1",
+            "errors": null,
+            "id": 16,
+            "input_connections": {
+                "input1": {
+                    "id": 15,
+                    "output_name": "out_file1"
+                },
+                "queries_0|input2": {
+                    "id": 14,
+                    "output_name": "output"
+                }
+            },
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Concatenate datasets",
+                    "name": "input1"
+                }
+            ],
+            "label": null,
+            "name": "Concatenate datasets",
+            "outputs": [
+                {
+                    "name": "out_file1",
+                    "type": "input"
+                }
+            ],
+            "position": {
+                "left": 2091.16392781983,
+                "top": 291.9664142004329
+            },
+            "post_job_actions": {},
+            "tool_id": "cat1",
+            "tool_state": "{\"input1\": {\"__class__\": \"RuntimeValue\"}, \"queries\": [{\"__index__\": 0, \"input2\": {\"__class__\": \"RuntimeValue\"}}], \"__page__\": 0, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "1.0.0",
+            "type": "tool",
+            "uuid": "4f5bda12-5a0f-405b-b688-3f27420be9ab",
+            "when": null,
+            "workflow_outputs": [
+                {
+                    "label": "out_file1",
+                    "output_name": "out_file1",
+                    "uuid": "b37dcb51-8d16-44b4-8851-bdc1411199fb"
+                }
+            ]
+        }
+    },
+    "tags": [],
+    "uuid": "d1bafac3-9564-4674-ae44-db94b199d075",
+    "version": 12
+}
